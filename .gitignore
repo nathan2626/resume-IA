@@ -1,0 +1,25 @@
+# ================================
+# 💾 Ignorer les fichiers sensibles
+# ================================
+
+# Clés API et fichiers sensibles
+key.txt
+organization.txt
+url.txt
+
+.env
+
+# Logs et fichiers temporaires
+*.log
+*.tmp
+*.bak
+
+# Dossiers Python
+__pycache__/
+*.pyc
+
+# ================================
+# 📂 Ignorer tous les fichiers JSON
+# ================================
+
+*.json
