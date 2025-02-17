@@ -6,7 +6,11 @@
 key.txt
 organization.txt
 url.txt
-
+/fonts
+/client-python
+/summaries
+/mistral_env
+*.pdf
 .env
 
 # Logs et fichiers temporaires
@@ -23,3 +27,4 @@ __pycache__/
 # ================================
 
 *.json
+/client-python/
