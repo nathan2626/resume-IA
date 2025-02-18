@@ -71,90 +71,82 @@ for company, tickets_list in company_tickets.items():
 
     ticket_trend = ', '.join([f"{month}: {count}" for month, count in sorted(monthly_counts.items())])
 
-    # 🧠 Construction du prompt en HTML structuré
+    # 🧠 Construction du prompt simplifié
     today_str = today.strftime("%d/%m/%Y")
     prompt = f"""
-🎯 **Contexte** : 
-Tu es un **expert en support IT**. Analyse les tickets de support de l'entreprise **'{company}'**, issus de l'outil **Tucania**.  
-**Produis un rapport structuré en HTML** avec une présentation professionnelle et claire.  
+    IMPORTANT : La réponse doit être exclusivement au format JSON.
+Analyse les tickets ci-dessous et produis un **rapport structuré en JSON** contenant les sections suivantes :
+IMPORTANT : La réponse doit être exclusivement au format JSON.
 
----
-
-### 🖹 **Sommaire** *(cliquer pour accéder aux sections)*  
-1️⃣ [Statistiques générales](#stats)  
-2️⃣ [Analyse approfondie des problèmes critiques](#problems)  
-3️⃣ [Analyse des solutions existantes](#solutions)  
-4️⃣ [Propositions d'amélioration](#improvements)  
-5️⃣ [Points de vigilance et risques](#risks)  
-
----
-
-## 1️⃣ Statistiques générales *(id="stats")*  
-**Présente sous forme de tableau professionnel avec les colonnes : Catégorie | Détail | Analyse**.  
-- Total de tickets : {total_tickets}  
-- Thèmes principaux : {top_themes}  
+## 📊 **Statistiques générales**  
+- Nombre total de tickets : {total_tickets}  
+- Thèmes principaux (top 5) : {top_themes}  
 - Projets principaux : {top_projects}  
-- Évolution 6 derniers mois : {ticket_trend}  
+- Évolution des tickets sur les 6 derniers mois : {ticket_trend}  
+IMPORTANT : La réponse doit être exclusivement au format JSON.
 
-💡 **Instruction :** Fournis des analyses sur les hausses, baisses et tendances remarquables.  
-
----
-
-## 2️⃣ Analyse approfondie des problèmes critiques *(id="problems")*  
-- Analyse les causes racines avec un raisonnement détaillé : **techniques, humaines et organisationnelles**.  
-- Utilise les **données temporelles et contextuelles** pour trouver des **corrélations significatives**.  
-- Donne des recommandations sur les **actions correctrices prioritaires**.  
-
-💡 **Exemple attendu :**  
-- **Problème :** Erreurs de signature électronique.  
-- **Causes :** Incompatibilité entre les composants et workflows mal définis.  
-- **Raisonnement :** Les erreurs ont augmenté de 15 % après une mise à jour système, suggérant un problème de configuration.  
-- **Recommandation :** Ajuster les paramètres et effectuer des tests de non-régression après chaque mise à jour.  
+**🔍 Analyse attendue :**  
+- Identifie les **pics d'activité** et explique leurs causes.  
+- Analyse les tendances et **explique leur signification** en lien avec les activités et événements connus.  
+- Compare les **différences entre les projets** et **les thèmes récurrents**.  
+IMPORTANT : La réponse doit être exclusivement au format JSON.
 
 ---
+IMPORTANT : La réponse doit être exclusivement au format JSON.
+## ⚠️ **Analyse approfondie des problèmes critiques**  
+- Détaille les **problèmes les plus fréquents** et les **thèmes associés**.  
+- Explique les **causes racines** (techniques, humaines, organisationnelles) en utilisant une **analyse causale**.  
+- Classe les problèmes par ordre d'importance et d'impact.  
+IMPORTANT : La réponse doit être exclusivement au format JSON.
 
-## 3️⃣ Analyse des solutions existantes *(id="solutions")*  
-- Évalue les solutions appliquées en termes de **fréquence de réutilisation** et **efficacité observée**.  
-- Explique pourquoi certaines solutions fonctionnent mieux.  
-- Propose des **axes d'amélioration** sur les solutions inefficaces.  
+**🔍 Analyse attendue :**  
+- Utilise la **méthode des 5 pourquoi** pour identifier la cause fondamentale.  
+- Donne des **exemples d'incidents** et explique pourquoi ils sont représentatifs.  
+- Met en évidence les **facteurs externes** (mises à jour, changements de process) qui ont pu influer.  
 
-💡 **Exemple attendu :**  
-- **Solution testée :** Automation des workflows.  
-- **Résultat :** 70 % des incidents liés aux erreurs humaines ont disparu.  
-- **Prochaine étape :** Étendre l'automatisation à d'autres processus critiques.  
+---IMPORTANT : La réponse doit être exclusivement au format JSON.
 
----
+## 🧠 **Analyse des solutions existantes**  
+- Liste les solutions appliquées et évalue leur **efficacité** et leur **pérennité**.  
+- Indique quelles solutions ont été **réutilisées** et pourquoi.  
+- Décrit les **limites et contraintes** observées.  
+IMPORTANT : La réponse doit être exclusivement au format JSON.
 
-## 4️⃣ Propositions d'amélioration *(id="improvements")*  
-- Propose des **mesures techniques et organisationnelles** en détaillant les impacts attendus.  
-- Donne des exemples d'implémentation et des **KPIs** pour suivre les progrès.  
-
-💡 **Exemple attendu :**  
-- **Amélioration :** Surveillance en temps réel des workflows.  
-- **Impact attendu :** Diminution des erreurs de 30 % et des temps d’intervention de 25 %.  
-- **Recommandation :** Mettre en place l'outil X et former les équipes IT.  
-
----
-
-## 5️⃣ Points de vigilance et risques *(id="risks")*  
-- Dresse la liste des **risques potentiels** et de leurs conséquences.  
-- Propose des **plans d'atténuation et stratégies de prévention**.  
-
-💡 **Exemple attendu :**  
-- **Risque :** Perte de compétences internes.  
-- **Conséquence :** Allongement des temps de résolution et erreurs répétées.  
-- **Plan d'action :** Mettre en place un **programme de formation continue** et une **documentation centralisée**.  
+**🔍 Analyse attendue :**  
+- Explique pourquoi certaines solutions sont réutilisées et d'autres non.  
+- Identifie les **facteurs de succès et d'échec** des interventions.  
+- Donne des recommandations sur les solutions à **généraliser** et celles à **abandonner**.  
 
 ---
+IMPORTANT : La réponse doit être exclusivement au format JSON.
+## 🔧 **Propositions d'amélioration**  
+- Suggère des actions concrètes pour **réduire les incidents récurrents**.  
+- Précise les **résultats attendus** et les **KPIs** à suivre.  
+- Propose des améliorations organisationnelles et techniques.  
+IMPORTANT : La réponse doit être exclusivement au format JSON.
 
-🎨 **Instructions de style :**  
-- Mise en page avec **tableaux professionnels**, **paragraphes aérés**, et **titres différenciés**.  
-- Inclure des **icônes visuelles** et des **couleurs différenciées** selon les sections.  
-- Utiliser des **ancrages hypertextes** dans le sommaire.  
+**🔍 Analyse attendue :**  
+- Précise les **coûts et bénéfices attendus**.  
+- Propose des **actions à court et long terme**.  
+- Suggère des **outils ou process** pertinents en fonction des problématiques.  
 
 ---
+IMPORTANT : La réponse doit être exclusivement au format JSON.
+## 🚨 **Points de vigilance et risques**  
+- Liste les **risques potentiels** et leur **impact**.  
+- Identifie les zones critiques nécessitant un suivi particulier.  
+- Propose des stratégies de prévention et d'anticipation.  
+IMPORTANT : La réponse doit être exclusivement au format JSON.
 
-📂 **Tickets fournis pour analyse :**
+**🔍 Analyse attendue :**  
+- Explique **comment les risques peuvent évoluer** si aucune action n'est prise.  
+- Propose des **scénarios de gestion des risques** (plan B/C).  
+- Précise les **indicateurs d'alerte précoce** à surveiller.  
+IMPORTANT : La réponse doit être exclusivement au format JSON.
+
+💡 **Sortie attendue :** Un **JSON clair et structuré**.  
+IMPORTANT : La réponse doit être exclusivement au format JSON.
+📂 **Tickets à analyser** :
 
 """
 
@@ -162,17 +154,16 @@ Tu es un **expert en support IT**. Analyse les tickets de support de l'entrepris
     for ticket in tickets_list:
         description = clean_text(ticket['description'] or "Aucune description.")
         prompt += (
-            f"🔹 **Ticket #{ticket['id']}**\n"
-            f"- 🏷️ Titre : {ticket['title']}\n"
-            f"- 📝 Description : {description}\n"
-            f"- 🚨 Priorité : {ticket['priority']}\n"
-            f"- 🎯 Thèmes : {ticket['Themes'] or 'Non spécifié'}\n"
-            f"- 🕒 Temps suivi : {ticket['trackedHours']}h\n"
-            f"- 📅 Date de création : {ticket['dateCreation']}\n\n"
+            f"Ticket #{ticket['id']} :\n"
+            f"- Titre : {ticket['title']}\n"
+            f"- Description : {description}\n"
+            f"- Priorité : {ticket['priority']}\n"
+            f"- Thèmes : {ticket['Themes'] or 'Non spécifié'}\n"
+            f"- Temps suivi : {ticket['trackedHours']}h\n"
+            f"- Date de création : {ticket['dateCreation']}\n\n"
         )
 
-    prompt += "\n🔔 **Analyse approfondie et complète attendue en format HTML.**\n"
-
+    prompt += "\n🔔 **IMPORTANT : La réponse doit être exclusivement au format JSON.**\n"
     # 🔍 Envoi vers l'API Mistral
     try:
         response = client.chat.complete(
@@ -181,14 +172,22 @@ Tu es un **expert en support IT**. Analyse les tickets de support de l'entrepris
             max_tokens=8192
         )
         final_summary = response.choices[0].message.content
-        logging.info(f"✅ Analyse complète réalisée pour {company}")
 
-        # 💾 Enregistrer le résumé dans un fichier JSON
-        filename = f"summaries/{company.replace(' ', '_')}_summary.json"
-        with open(filename, "w", encoding="utf-8") as f:
-            json.dump({"company": company, "summary": final_summary}, f, ensure_ascii=False, indent=4)
+        # Vérifier si la réponse est un JSON valide
+        try:
+            json_data = json.loads(final_summary)
+            logging.info(f"✅ Analyse complète réalisée pour {company}")
 
-        print(f"\n✅ Résumé final enregistré pour {company} : {filename}\n")
+            # 💾 Enregistrer le résumé dans un fichier JSON
+            filename = f"summaries/{company.replace(' ', '_')}_summary.json"
+            with open(filename, "w", encoding="utf-8") as f:
+                json.dump(json_data, f, ensure_ascii=False, indent=4)
+
+            print(f"\n✅ Résumé final enregistré pour {company} : {filename}\n")
+
+        except json.JSONDecodeError:
+            logging.error(f"❌ Erreur : Mistral n'a pas renvoyé un JSON valide.")
+            print("🚨 Erreur : La réponse n'était pas un JSON valide.")
 
     except Exception as e:
         logging.error(f"❌ Erreur lors de l'analyse pour {company}: {e}")
