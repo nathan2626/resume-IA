@@ -17,7 +17,7 @@ url.txt
 *.log
 *.tmp
 *.bak
-
+*.txt
 # Dossiers Python
 __pycache__/
 *.pyc
@@ -27,4 +27,5 @@ __pycache__/
 # ================================
 
 *.json
+*.jsonl
 /client-python/
